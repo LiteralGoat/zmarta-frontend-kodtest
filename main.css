@@ -1,18 +1,162 @@
+@import url(//db.onlinewebfonts.com/c/6a1891db0152c7835cc61d5e95578b29?family=Sharp+Sans+No1+Book);
+@import url(//db.onlinewebfonts.com/c/d746f11d11dd01067a58e13b965e23c7?family=Sharp+Sans+No1+Semibold);
+
+* {
+	font-family: "Sharp Sans No1 Book", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #201c46
+}
+
+.monthly-cost-value {
+	font-style: italic;
+	font-size: 20px;
+}
+
+.wrapper {
+	position: relative;
+	display: grid;
+	justify-content: center;
+}
+
+.label {
+	font-family: "Sharp Sans No1 Semibold", Arial, Helvetica, sans-serif;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+
+.hint {
+	display: inline-block;
+	pointer-events: none;
+	color: rgb(207, 21, 21);
+}
+
+/* Input */
+
+.input-container {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.input-wrapper {
+	position: relative;
+}
+
+.input {
+	position: relative;
+	border: 1px rgb(204, 204, 204) solid;
+	border-radius: 5px;
+	padding: 15px;
+	outline: none;
+	display: inline-block;
+	margin: 0 15px;
+	color: white;
+}
+
+.input:focus {
+	color: black;
+	border-color: #1D7BBF;
+}
+
+.input[type=number]::-webkit-inner-spin-button, 
+.input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.input-placeholder {
+	pointer-events: none;
+	position: absolute;
+	top: 15px;
+	left: 30px;
+}
+
+.input:focus ~ .input-placeholder {
+	display: none;
+}
+
+/* Calculator Button */
+
 .calculator-button {
-    border: none;
-    line-height: 1;
-    overflow: hidden;
-    display: inline-block;
-    text-align: center;
-    width: 44px;
-    height: 44px;
-    content: "";
-    font-size: 40px;
-    color: white;
-    background: #61d5a7;
-    border-radius: 50%;
-    cursor: pointer;
-    box-sizing: border-box;
-    font-weight: lighter;
-    padding-bottom: 4px;
+	border: none;
+	line-height: 1;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 44px;
+	height: 44px;
+	content: "";
+	font-size: 40px;
+	color: white;
+	background: #64D5A7;
+	border-radius: 50%;
+	cursor: pointer;
+	box-sizing: border-box;
+	font-weight: lighter;
+}
+
+.calculator-button:hover {
+	background-color: #70dcb1;
+}
+
+/* CTA */
+
+.cta-button {
+	cursor: pointer; 
+	margin-top: 45px;
+	transition: all 0.1s ease-in-out;
+
+	/* Contour */
+	display: flex;
+	align-items: center;
+	border: none;
+	background-color: #64D5A7;
+	border-radius: 60px;
+	padding: 8px 15px;
+	width: 100%;
+
+	/* Font */
+	font-style: italic;
+	font-family: "Sharp Sans No1 Semibold", Arial, Helvetica, sans-serif;
+	color: white;
+	/* In case semibold fails */
+	font-weight: 600;
+}
+
+.cta-button:hover {
+	background-color: #70dcb1;
+}
+
+.cta-button-arrow {
+	color: white; 
+	font-size: 40px !important;
+	margin-top: 2px;
+	margin-left: auto;
+	animation: arrow-anim-left 0.3s ease-in-out;
+}
+
+.cta-button:hover .cta-button-arrow {
+	animation: arrow-anim-right 0.3s ease-in-out;
+	transform: translateX(5px);
+}
+
+@keyframes arrow-anim-right {
+	0% {
+		transform: translateX(0px);
+	}
+	100% {
+		transform: translateX(5px);
+	}
+}
+
+@keyframes arrow-anim-left {
+	0% {
+		transform: translateX(5px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
 }
