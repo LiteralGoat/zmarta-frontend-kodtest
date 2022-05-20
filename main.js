@@ -72,7 +72,9 @@ var app = new Vue({
     loanAmount: {
       handler(newVal, oldVal) {
         if (newVal < 5000 || newVal > 600000) {
-          this.loanAmount = oldVal;
+          this.loanAmount = parseInt(oldVal);
+        } else {
+          this.loanAmount = parseInt(newVal);
         }
       },
       deep: true,
@@ -80,7 +82,9 @@ var app = new Vue({
     repaymentYears: {
       handler(newVal, oldVal) {
         if (newVal < 1 || newVal > 15) {
-          this.repaymentYears = oldVal;
+          this.repaymentYears = parseInt(oldVal);
+        } else {
+          this.repaymentYears = parseInt(newVal);
         }
       },
       deep: true,
