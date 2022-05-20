@@ -26,27 +26,30 @@
 
     <div id="app">
         <div class="wrapper">
+            <!-- Monthly Cost Row -->
             <div class="monthly-cost">
+                <!-- Monthly Cost Label -->
                 <div class="label">
-                    <!-- monthlyCostLabel -->
                     {{ getContent().monthlyCostLabel }}
                 </div>
+                <!-- Monthly Cost -->
                 <div class="monthly-cost-value">
-                    <!-- monthlyCost + monthlyCostSuffix -->
                     {{ monthlyCost | formatNumber }} {{ getContent().monthlyCostSuffix }}
                 </div>
             </div>
 
+            <!-- Input Row for Loan Amount -->
             <div class="label">
-                <!-- loanAmountLabel -->
                 {{ getContent().loanAmountLabel }}
             </div>
             <div class="input-container">
+                <!-- Icon Button -->
                 <button class="calculator-button material-symbols-outlined" style="font-size: 28px"
                     @click="subtract('loanAmount')">
                     remove
                 </button>
 
+                <!-- Input Field -->
                 <div class="input-wrapper">
                     <input class="input" type="number" v-model.lazy="loanAmount"
                         @input="hintHandling($event, 'loanAmount')">
@@ -61,22 +64,23 @@
                     add
                 </button>
             </div>
+            <!-- Error Hint Message -->
             <small class="hint" v-if="loanAmountHint">
-                Måste vara mellan
-                5000 och 600 000 kr.
+                {{ getContent().loanAmountHintMessage }}
             </small>
 
-
+            <!-- Input Row for Repayment Years -->
             <div class="label">
-                <!-- repaymentLabel -->
                 {{ getContent().repaymentYearsLabel }}
             </div>
 
             <div class="input-container">
+                <!-- Icon Button -->
                 <button class="calculator-button material-symbols-outlined" @click="subtract('repaymentYears')">
                     remove
                 </button>
 
+                <!-- Input Field -->
                 <div class="input-wrapper">
                     <input class="input" type="number" v-model.lazy="repaymentYears"
                         @input="hintHandling($event, 'repaymentYears')">
@@ -85,20 +89,23 @@
                     </div>
                 </div>
 
+                <!-- Icon Button -->
                 <button class="calculator-button material-symbols-outlined" style="font-size: 28px"
                     @click="add('repaymentYears')">
                     add
                 </button>
             </div>
+            <!-- Error Hint Message -->
             <small class="hint" v-if="repaymentYearsHint">
-                Måste vara mellan 1 och 15.
+                {{ getContent().repaymentYearsHintMessage }}
             </small>
 
-
+            <!-- CTA Button -->
             <div>
                 <button class="cta-button">
-                    <!-- ctaLabel -->
+                    <!-- CTA Text -->
                     Ansök nu
+                    <!-- CTA Arrow Icon -->
                     <span class="material-symbols-outlined cta-button-arrow">
                         trending_flat
                     </span>
